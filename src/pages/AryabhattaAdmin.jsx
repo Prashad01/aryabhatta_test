@@ -40,7 +40,7 @@ const genId = () => Date.now().toString(36) + Math.random().toString(36).slice(2
 const fmtDate = (ts) => ts ? new Date(ts).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" }) : "";
 const fmtSize = (b) => { if (!b) return ""; if (b < 1024) return b + " B"; if (b < 1048576) return (b / 1024).toFixed(1) + " KB"; return (b / 1048576).toFixed(1) + " MB"; };
 
-const CATEGORIES_DEFAULT = ["Class 10", "Class 12", "BCA", "B.Sc", "Competitive", "General GK"];
+const CATEGORIES_DEFAULT = ["Class 10", "Class 11", "Class 12", "BA", "B.Sc", "B.COM", "Competitive", "General GK"];
 const SUBJECTS = ["Assamese", "Math", "English", "Computer", "Physics", "Chemistry", "Biology", "History", "Geography", "Economics", "Other"];
 const CONTENT_TYPES = [
   { id: "notes", icon: "📝", name: "Notes / Article", desc: "Text notes with headings, paragraphs & tips" },
@@ -343,13 +343,13 @@ function LoginPage({ onLogin }) {
             <label className="form-label">User ID</label>
             <input className="form-input" placeholder="Enter your User ID or username" value={uid}
               onChange={e => setUid(e.target.value)} onKeyDown={e => e.key === "Enter" && handleLogin()} />
-            <span className="form-hint">Default: admin</span>
+            {/* <span className="form-hint">Default: admin</span> */}
           </div>
           <div className="form-group">
             <label className="form-label">Password</label>
             <input className="form-input" type="password" placeholder="Enter password" value={pw}
               onChange={e => setPw(e.target.value)} onKeyDown={e => e.key === "Enter" && handleLogin()} />
-            <span className="form-hint">Default: admin123</span>
+            {/* <span className="form-hint">Default: admin123</span> */}
           </div>
           <button className="btn btn-primary btn-full" onClick={handleLogin} disabled={loading}>
             {loading ? "Signing in…" : "Sign In →"}
@@ -463,7 +463,7 @@ function ContentModal({ mode, initial, customCategories, onClose, onSave }) {
   const [contentType, setContentType] = useState(initial?.contentType || "notes");
   const [form, setForm] = useState({
     title: initial?.title || "",
-    subject: initial?.subject || "Math",
+    subject: initial?.subject || "Select Subject",
     category: initial?.category || (customCategories[0]?.name || "Class 10"),
     summary: initial?.summary || "",
     status: initial?.status || "published",

@@ -32,7 +32,7 @@ const CSS = `
     --shadow: 0 2px 16px rgba(0,0,0,0.07);
   }
 
-  html, body { font-family: 'Sora', sans-serif; background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.6; }
+  html, body { font-family: 'Sora', 'Kalpurush', sans-serif; background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.6; }
 
   .nav {
     background: var(--primary); padding: 0 24px; display: flex;
